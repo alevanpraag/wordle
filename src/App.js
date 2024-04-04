@@ -5,6 +5,14 @@ function App() {
   const wordle = "HELLO";
   const numberOfRows = 6;
   const rowSize = 5;
+  const sucessMessages = [
+    "Genius! On your first try!",
+    "Magnificent!",
+    "Impressive",
+    "Splendid",
+    "Great",
+    "Phew"
+  ];
   const [activeRow, setActiveRow] = useState(0);
   const [error, setError] = useState("Make a guess!");
   const inputRefs = useRef([...Array(numberOfRows)].map(() => Array(rowSize).fill(0).map(() => React.createRef())));
@@ -58,7 +66,8 @@ function App() {
         if (word === wordle) {
           changeRow(rowIndex);
           setActiveRow(6);
-          setError("Congrats! " + (rowIndex + 1) + "/6");
+          const message = sucessMessages[rowIndex];
+          setError(message);
         } else {
           const valid = await isValidWord(word);
           if (valid) {

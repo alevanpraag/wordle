@@ -32,6 +32,7 @@ header{
   height: 50px;
   border: 1.5px solid lightgray;
   border-radius: 2px;
-  font-size: x-large;
+  font-size: 2rem;
   text-align: center;
+  font-weight: bold;
 }
