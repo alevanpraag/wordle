@@ -7,7 +7,7 @@ This project is a React-based implementation of the popular word puzzle game Wor
 
 ## Features
 
-- A new word to guess every refresh
+- A new word to guess every day
 - Feedback on letter accuracy and placement:
   - Green for correct letters in the correct spot
   - Yellow for correct letters in the wrong spot
