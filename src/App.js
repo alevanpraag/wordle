@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const wordle = "HELLO";
+  const [wordle, setWordle] = useState("HELLO");
   const numberOfRows = 6;
   const rowSize = 5;
   const sucessMessages = [
@@ -76,7 +76,7 @@ function App() {
               setActiveRow(rowIndex + 1);
             }else{
               setActiveRow(rowSize);
-              setError("Out of attempts :(");
+              setError("Out of attempts :( " + wordle);
             }
           } else {
             setError(word + " is not a valid word");
@@ -88,6 +88,22 @@ function App() {
       inputRefs.current[rowIndex][nextIndex].current.focus();
     }
   };
+
+  useEffect(() => {
+    const getWordle = async () => {
+      try{
+        const response = await fetch('https://random-word-api.herokuapp.com/word?length=5');
+        const data = await response.json();
+        if (data.length !== 0){
+          const wordUpperCase = data[0].toUpperCase();
+          setWordle(wordUpperCase);
+        }
+      }catch (error) {
+        console.error('Error getting word:', error);
+      }
+    }
+    getWordle();
+}, []); 
 
   useEffect(() => {
     if (activeRow < numberOfRows && inputRefs.current[activeRow][0].current) {
