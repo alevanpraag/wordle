@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { generate } from "random-words";
 import './App.css';
 
 function App() {
@@ -91,16 +92,12 @@ function App() {
 
   useEffect(() => {
     const getWordle = async () => {
-      try{
-        const response = await fetch('https://random-word-api.herokuapp.com/word?length=5');
-        const data = await response.json();
-        if (data.length !== 0){
-          const wordUpperCase = data[0].toUpperCase();
-          setWordle(wordUpperCase);
-        }
-      }catch (error) {
-        console.error('Error getting word:', error);
-      }
+      const today = new Date();
+      const dateString = today.toLocaleDateString(); // Default locale and options
+      const word = generate({ exactly: 1, minLength: 5, maxLength: 5, seed: dateString });
+      const wordUpperCase = word[0].toUpperCase();
+      setWordle(wordUpperCase);
+      console.log(wordUpperCase);
     }
     getWordle();
 }, []); 
