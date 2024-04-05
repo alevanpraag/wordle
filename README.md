@@ -1,4 +1,4 @@
-```
+
 # Wordle React App
 
 ## Overview
@@ -49,4 +49,3 @@ Contributions to the Wordle React app are welcome. Before contributing, please d
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-```
