@@ -20,7 +20,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/wordle-react.git
+   git clone https://github.com/alevanpraag/wordle-react.git
    cd wordle-react
    ```
 
