@@ -97,7 +97,6 @@ function App() {
       const word = generate({ exactly: 1, minLength: 5, maxLength: 5, seed: dateString });
       const wordUpperCase = word[0].toUpperCase();
       setWordle(wordUpperCase);
-      console.log(wordUpperCase);
     }
     getWordle();
 }, []); 
